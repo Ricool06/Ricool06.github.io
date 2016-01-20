@@ -30,7 +30,9 @@
 .small{
     flex-grow: 0;
 }
-
+.medium{
+    flex-grow: 0.1;
+}
 /*Big flex item*/
 .big{
     flex-grow: 1;
@@ -119,4 +121,10 @@ iframe{
     z-index: -1;
     -webkit-filter: grayscale(0);
     opacity: 0.6;
+}
+#copyright{
+    margin-left: 10px;
+}
+#headerLogo{
+    margin-right: 3%;
 }
