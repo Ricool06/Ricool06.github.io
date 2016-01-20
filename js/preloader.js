@@ -23,28 +23,48 @@ Symbol.prototype.draw = function(){
 }
 //end class
 
-var body = document.getElementById("body");
-var header = document.getElementById("header");
-var footer = document.getElementById("footer");
-var canvas = document.getElementById("preloader");
+var body;
+var header;
+var footer;
+var canvas;
 
-var ctx = canvas.getContext("2d");
+var ctx;
 
-window.addEventListener("resize",fitToScreen, false);
+var symbol;
+var symbol2;
 
-var symbol = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 4, false, -0.1);
-var symbol2 = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 6, false, 0.1);
+var drawInterval;
 
-fitToScreen();
+preloaderInit();
 
-setInterval(draw, 16);
+function preloaderInit(){
+    body = document.getElementById("body");
+    header = document.getElementById("header");
+    footer = document.getElementById("footer");
+    canvas = document.getElementById("preloader");
+
+    if(canvas != null){
+        ctx = canvas.getContext("2d");
+
+        window.addEventListener("resize",fitToScreen, false);
+        fitToScreen();
+
+        symbol = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 4, false, -0.1);
+        symbol2 = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 6, false, 0.1);
+
+        clearInterval(drawInterval);
+        drawInterval = setInterval(draw, 16);
+    }
+}
 
 function draw(){
-    ctx.beginPath();
-    ctx.clearRect(0,0, canvas.width, canvas.height);
-    ctx.closePath();
-    symbol.draw();
-    symbol2.draw();
+    if(canvas != null){
+        ctx.beginPath();
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        ctx.closePath();
+        symbol.draw();
+        symbol2.draw();
+    }
 }
 
 function fitToScreen(){
@@ -57,6 +77,6 @@ function fitToScreen(){
 
     ctx = canvas.getContext("2d");
 
-    symbol = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 4, false, -0.1);
-    symbol2 = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, canvas.height / 6, false, 0.1);
+    symbol = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, Math.min(canvas.height / 4, canvas.width / 4), false, -0.1);
+    symbol2 = new Symbol(canvas.width / 2, canvas.height / 2, 0, Math.PI, Math.min(canvas.height / 6, canvas.width / 6), false, 0.1);
 }
