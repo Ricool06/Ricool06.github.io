@@ -14,7 +14,7 @@ var xhr = new XMLHttpRequest();
 navigationInit();
 
 function navigationInit(){
-    lastClickedTab.style.backgroundColor = 'rgba(140,160,160,1)';
+    lastClickedTab.style.backgroundColor = 'rgba(179, 229, 252, 1)';
     var content  = getNewContent(lastClickedTab);
 
     changeMainContent(content);
@@ -26,7 +26,7 @@ function handleTabClick(e){
         lastClickedTab.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         lastClickedTab = tab;
 
-        tab.style.backgroundColor = 'rgba(140,160,160,1)';
+        tab.style.backgroundColor = 'rgba(179, 229, 252, 1)';
 
         var content = "<canvas id=\"preloader\"></canvas>";
         changeMainContent(content);
