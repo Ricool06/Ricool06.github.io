@@ -108,5 +108,6 @@ iframe{
 #bgImg{
     position: absolute;
     z-index: -1;
-    -webkit-filter: grayscale(1) hue-rotate(240deg);
+    -webkit-filter: grayscale(1);
+    opacity: 0.6;
 }
