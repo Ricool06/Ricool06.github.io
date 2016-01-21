@@ -2,6 +2,8 @@ var grid = document.getElementById("projectsGrid");
 var projectsXHR = new XMLHttpRequest();
 var projectsObj;
 
+preloaderInit();
+
 projectsXHR.onreadystatechange = handleProjectsXHR;
 projectsXHR.open("GET","https://api.github.com/users/ricool06/repos", true);
 projectsXHR.send();
@@ -9,7 +11,7 @@ projectsXHR.send();
 function handleProjectsXHR(){
     if(projectsXHR.status == 200 && projectsXHR.readyState == 4){
         projectsObj = JSON.parse(projectsXHR.responseText);
-
+        grid.innerHTML = "";
         for(var project of projectsObj){
             var div = document.createElement("div");
             div.className = "projectBox fadeIn small";
@@ -20,7 +22,7 @@ function handleProjectsXHR(){
             content = content + "<p>" + project.description + "</p>";
             div.addEventListener("click", function(){ window.open(project.html_url); }, false);
 
-            div.innerHTML += content;
+            div.innerHTML = content;
             grid.appendChild(div);
         }
     }

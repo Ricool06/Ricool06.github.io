@@ -17,12 +17,12 @@ Sploosh.prototype.draw = function(){
   ctx.lineTo(this.x + (this.length * this.xvel),this.y - (this.length * this.yvel));
   ctx.stroke();
   ctx.closePath();
-  
+
   this.x -= this.xvel;
   this.y -= this.yvel;
-  
+
   this.yvel -= 0.2;
-  
+
   this.thickness -= 0.1;
   if(this.length > 0){
   	this.length -= 0.1;
@@ -48,10 +48,10 @@ Drop.prototype.draw = function(){
   ctx.lineTo(this.x,this.y + this.length);
   ctx.stroke();
   ctx.closePath();
-  
+
   this.y += this.vel;
   this.vel += this.acc;
-  
+
   if(this.y > c.height - 4){
   	splooshes[this.id] = new Sploosh(this.x, this.y);
     splooshes[drops.length + this.id] = new Sploosh(this.x, this.y);
@@ -67,7 +67,7 @@ var ctx = c.getContext("2d");
 var drops = [];
 var splooshes = [];
 
-for(var i = 0; i < 20; i++){
+for(var i = 0; i < 100; i++){
 	var max = c.width;
   var min = 0;
 	var x = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -81,7 +81,7 @@ function draw() {
   ctx.beginPath();
   ctx.clearRect(0,0,c.width,c.height);
   ctx.closePath();
-  
+
   for(var i = 0; i < drops.length; i++){
     drops[i].draw();
   }
