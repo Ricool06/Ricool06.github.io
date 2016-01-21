@@ -69,6 +69,20 @@
     animation-name:fadeIn;
     animation-duration: 1s;
 }
+.projectBox{
+    border: 2px solid rgba(179, 229, 252, 1);
+    background-color: rgba(255,255,255,1);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    width:100%;
+    margin:2%;
+    cursor: pointer;
+}
+.projectImg{
+    max-width: 100%;
+    height: auto;
+}
 html{
     height: 100%;
 }
