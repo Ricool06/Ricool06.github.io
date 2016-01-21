@@ -51,10 +51,10 @@ function getNewContent(tab){
 
     switch (tab){
         case homeTab:
-            content = "<iframe src=\"home.html\" scrolling=\"no\" seamless=\"seamless\"></iframe>";
+            content = "<iframe src=\"home.html\" scrolling=\"yes\" seamless=\"seamless\"></iframe>";
             break;
         case projectsTab:
-            content = "<iframe src=\"projects.html\" scrolling=\"no\" seamless=\"seamless\"></iframe>";
+            content = "<iframe src=\"projects.html\" scrolling=\"yes\" seamless=\"seamless\"></iframe>";
             break;
         case aboutTab:
             content = "<iframe src=\"about.html\" scrolling=\"no\" seamless=\"seamless\"></iframe>";
