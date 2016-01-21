@@ -1,17 +1,17 @@
 var bg = document.getElementById("bgImg");
-window.addEventListener("resize", resizeBackground);
 
 var naturalWidth = bg.naturalWidth;
 var naturalHeight = bg.naturalHeight;
 var ratio = naturalWidth / naturalHeight;
 
-function resizeBackground(){
+window.addEventListener("resize", resizeBackground);
 
-    if(body.offsetHeight > body.offsetWidth){
+function resizeBackground(){
+    if(body.offsetHeight > bg.offsetHeight){
         bg.style.height = body.offsetHeight;
         bg.style.width = body.offsetHeight * ratio;
     }
-    else{
+    else if(body.offsetWidth > bg.offsetWidth){
         bg.style.width = body.offsetWidth;
         bg.style.height = body.offsetWidth / ratio;
     }
