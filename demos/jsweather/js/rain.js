@@ -5,7 +5,7 @@ var Sploosh = function(x, y){
   this.thickness = 4;
   this.xvel = (Math.random() - 0.5);
   this.yvel = Math.random() * 4;
-  this.color = 'rgba(0,140,255,0.5)';
+  this.color = 'rgba(0,140,255,0.2)';
 }
 
 Sploosh.prototype.draw = function(){
@@ -36,7 +36,7 @@ var Drop = function(x, y, vel, acc, id){
   this.vel = vel;
   this.acc = acc;
   this.id = id;
-  this.color = 'rgba(0,140,255,0.5)';
+  this.color = 'rgba(0,140,255,0.2)';
 }
 
 Drop.prototype.draw = function(){
@@ -55,37 +55,40 @@ Drop.prototype.draw = function(){
   if(this.y > c.height - 4){
   	splooshes[this.id] = new Sploosh(this.x, this.y);
     splooshes[drops.length + this.id] = new Sploosh(this.x, this.y);
-    this.y = -this.length;
-    this.x = Math.floor(Math.random() * (max - min + 1)) + min;
+    this.y = -this.length - (Math.random() * c.height);
+    this.x = Math.floor(Math.random() * (c.width)) + min;
     this.vel = 10;
   }
 }
 //End classes
+
+
 //Start
-var c = document.getElementById("c");
-var ctx = c.getContext("2d");
 var drops = [];
 var splooshes = [];
+var dropCount = 300;
 
-for(var i = 0; i < 100; i++){
-	var max = c.width;
-  var min = 0;
+
+for(var i = 0; i < dropCount; i++){
+    var max = c.width;
+    var min = 0;
 	var x = Math.floor(Math.random() * (max - min + 1)) + min;
-  var y = Math.floor(Math.random() * (max - min + 1)) + min;
-  drops.push(new Drop(x, y, 0.2, 0.2, i));
+    var y = Math.floor(Math.random() * (max - min + 1)) + min;
+    drops.push(new Drop(x, y, 0.2, 0.2, i));
 }
 
-setInterval(draw, 20);
+for(var i = 0; i < dropCount; i++){
+    splooshes.push(new Sploosh(0, 0));
+}
 
-function draw() {
-  ctx.beginPath();
-  ctx.clearRect(0,0,c.width,c.height);
-  ctx.closePath();
-
-  for(var i = 0; i < drops.length; i++){
-    drops[i].draw();
+function drawRain() {
+    for(var i = 0; i < drops.length; i++){
+        drops[i].draw();
   }
   for(var i = 0; i < splooshes.length; i++){
-    splooshes[i].draw();
+      if(splooshes[i] != null){
+        splooshes[i].draw();
+    }
+
   }
 }
