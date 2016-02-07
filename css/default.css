@@ -132,7 +132,7 @@ iframe{
 #bgImg{
     position: fixed;
     z-index: -1;
-    background-image: url("../img/large/rain1920x1280.jpg");
+    background-image: url("../img/large/bg1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
