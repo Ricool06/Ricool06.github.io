@@ -2,9 +2,15 @@
     font-family: RalewayRegular;
     src: url("fonts/Raleway-Regular.ttf");
 }
+
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+/*Includes content, padding and border in size.*/
+*{
+    box-size: border-box;
 }
 /*Container for flex items*/
 .flexy{
@@ -83,6 +89,10 @@
     max-width: 100%;
     height: auto;
 }
+.aboutContent{
+    padding-left: 20%;
+    padding-right: 20%;
+}
 html{
     /*height: 100%;*/
 }
@@ -118,6 +128,11 @@ p{
 iframe{
     border: 0px;
     width: 100%;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 #preloader{
     width:100px;
