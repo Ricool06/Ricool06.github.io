@@ -7,6 +7,8 @@ for (var i = 0; i < headerTabs.length; i++){
     tab.addEventListener("click", handleTabClick, false);
 }
 
+window.addEventListener('resize', resizeIframe);
+
 var lastClickedTab = headerTabs[0];
 
 var xhr = new XMLHttpRequest();
@@ -15,7 +17,7 @@ navigationInit();
 
 function navigationInit(){
     lastClickedTab.style.backgroundColor = 'rgba(179, 229, 252, 1)';
-    var content  = getNewContent(lastClickedTab);
+    var content = getNewContent(lastClickedTab);
 
     changeMainContent(content);
 }
@@ -51,13 +53,13 @@ function getNewContent(tab){
 
     switch (tab){
         case homeTab:
-            content = "<iframe src=\"home.html\" scrolling=\"yes\" seamless=\"seamless\"></iframe>";
+            content = "<iframe id=\"frame\" src=\"home.html\" scrolling=\"no\" seamless=\"seamless\" onload=\"resizeIframe()\"></iframe>";
             break;
         case projectsTab:
-            content = "<iframe src=\"projects.html\" scrolling=\"yes\" seamless=\"seamless\"></iframe>";
+            content = "<iframe id=\"frame\" src=\"projects.html\" scrolling=\"no\" seamless=\"seamless\" onload=\"resizeIframe()\"></iframe>";
             break;
         case aboutTab:
-            content = "<iframe src=\"about.html\" scrolling=\"no\" seamless=\"seamless\"></iframe>";
+            content = "<iframe id=\"frame\" src=\"about.html\" scrolling=\"no\" seamless=\"seamless\" onload=\"resizeIframe()\"></iframe>";
             break;
     }
     return content;

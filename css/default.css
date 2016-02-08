@@ -24,7 +24,10 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    height: 100%;
+}
+
+.bodyFlex{
+    min-height: 100%;
 }
 
 /*Used in the header to make sure the tabs are touching the bottom of the header*/
@@ -93,6 +96,10 @@
     padding-left: 20%;
     padding-right: 20%;
 }
+.aboutText{
+    margin: 0.5em;
+    text-align: center;
+}
 html{
     /*height: 100%;*/
 }
@@ -128,6 +135,8 @@ p{
 iframe{
     border: 0px;
     width: 100%;
+    height: auto;
+    display: block;
 }
 img{
     display: block;

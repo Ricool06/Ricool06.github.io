@@ -3,10 +3,11 @@
         <link href="css/default.css" rel="stylesheet">
         <!--Scripts-->
         <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/resizeIframe.js"></script>
     </head>
     <body id="body">
         <div id="bgImg"></div>
-        <div class="flexyVertical">
+        <div class="flexyVertical bodyFlex">
             <!--Header-->
             <header id="header">
                 <div class="flexy headerFlexy">
@@ -37,15 +38,13 @@
             </header>
 
             <!--Main-->
-            <main class="flexy">
-                <div class="flexy">
-                    <div class="small"></div>
-                    <div class="big" id="mainFlex">
-                        <canvas id=\"preloader\"></canvas>
-                    </div>
-                    <div class="small"></div>
+            <div class="flexyVertical big">
+                <div class="big"></div>
+                <div class="small" id="mainFlex">
+                    <canvas id=\"preloader\"></canvas>
                 </div>
-            </main>
+                <div class="big"></div>
+            </div>
 
             <!--Footer-->
             <footer id="footer">
